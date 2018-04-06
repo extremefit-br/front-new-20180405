@@ -142,7 +142,7 @@ class Empresas extends Component {
 							</div>
 						</section>
 						<ul className="form-cadastro__lista-botao">
-							<li><Button className="form-cadastro__botao form-cadastro__botao--add" type="button" onClick={this.handleAdd}>Salva</Button></li>&nbsp;&nbsp;&nbsp; 
+							<li><Button className="form-cadastro__botao form-cadastro__botao--add" type="button" onClick={this.handleAdd}>Salvar</Button></li>&nbsp;&nbsp;&nbsp; 
 							<li><Button className="form-cadastro__botao form-cadastro__botao--pesquisa" type="button" onClick={this.handleSearch}>Pesquisar</Button></li>
 						</ul>
 					</Form>
