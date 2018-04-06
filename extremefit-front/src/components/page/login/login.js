@@ -69,7 +69,7 @@ class Login extends Component {
 								aria-label="senha" 
 								onChange={this.handleChange}/>
 						</div>
-						<a className="link-esqueci-senha align-center">Esqueci minha senha</a>
+						{/* <a className="link-esqueci-senha align-center">Esqueci minha senha</a> */}
 						<Button className="login-botao align-center">Login</Button>
 					</Form> 
 				</Container>
