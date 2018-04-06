@@ -8,8 +8,13 @@ import Form from '../../form/form.js'
 import FormLabel from '../../form/formLabel/formLabel.js'
 import Input from '../../form/formInput/formInput.js'
 import Button from '../../form/formButton/formButton.js'
+import If from '../../if/if.jsx'
+import TiDelete from 'react-icons/lib/ti/delete'
+import TiEdit from 'react-icons/lib/ti/edit'
 import './especialista.css'
 
+
+let pesquisa = false
 class Empresas extends Component {
 	
 	constructor(props) {
@@ -23,6 +28,7 @@ class Empresas extends Component {
 
 	handleSearch(event){
 		console.log("teste evento pesquisa")
+		pesquisa = true
 		this.props.buscaEmpresas(event)
 	}
 
@@ -94,9 +100,9 @@ class Empresas extends Component {
 							</div>
 						</section>
 						<ul className="form-cadastro__lista-botao">
-							<li><Button className="form-cadastro__botao" type="button" onClick={this.handleAdd}>Adicionar</Button></li>
+							<li><Button className="form-cadastro__botao form-cadastro__botao--add" type="button" onClick={this.handleAdd}>Adicionar</Button></li>&nbsp;&nbsp;&nbsp; 
 							{/* <li><Button className="form-cadastro__botao" type="button" onClick={this.handleSearch}>Pesquisar</Button></li> */}
-							<li><Button className="form-cadastro__botao">Remover</Button></li>
+							<li><Button className="form-cadastro__botao form-cadastro__botao--pesquisa">Remover</Button></li>
 						</ul>
 					</Form>
 

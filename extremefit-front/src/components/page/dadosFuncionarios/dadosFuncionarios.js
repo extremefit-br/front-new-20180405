@@ -9,10 +9,14 @@ import Form from '../../form/form.js'
 import FormLabel from '../../form/formLabel/formLabel.js'
 import Input from '../../form/formInput/formInput.js'
 import Button from '../../form/formButton/formButton.js'
+import If from '../../if/if.jsx'
+import TiDelete from 'react-icons/lib/ti/delete'
+import TiEdit from 'react-icons/lib/ti/edit'
 import './dadosFuncionarios.css'
 import decode from 'jwt-decode';
 import Select from 'react-select';
 
+let pesquisa = false
 const dado = {
 	cpf: "",
 	setor: "",
@@ -51,6 +55,7 @@ class DadosFuncionarios extends Component {
 
 	handleSearch(event) {
 		console.log("teste evento pesquisa")
+		pesquisa = true
 		this.props.buscaDados(event)
 	}
 
@@ -104,7 +109,7 @@ class DadosFuncionarios extends Component {
 				<Menu />
 				<Container className="main">
 					<Form className="form-cadastro">
-						<h1 className="form-cadastro__titulo">Dados</h1>
+						<h1 className="form-cadastro__titulo">Dados Funcionários</h1>
 						<section className="secao-campos">
 							<div className="secao-campos__metade">
 								<FormLabel className="form-cadastro__label form-cadastro__label--lineblock" for="cpf">CPF</FormLabel>
@@ -151,41 +156,41 @@ class DadosFuncionarios extends Component {
 							</div>
 						</section>
 						<ul className="form-cadastro__lista-botao">
-							<li><Button className="form-cadastro__botao" type="button" onClick={this.handleAdd}>Adicionar</Button></li>
-							<li><Button className="form-cadastro__botao" type="button" onClick={this.handleSearch}>Pesquisar</Button></li>
-							<li><Button className="form-cadastro__botao">Remover</Button></li>
+							<li><Button className="form-cadastro__botao form-cadastro__botao--add" type="button" onClick={this.handleAdd}>Adicionar</Button></li>&nbsp;&nbsp;&nbsp; 
+							<li><Button className="form-cadastro__botao form-cadastro__botao--pesquisa" type="button" onClick={this.handleSearch}>Pesquisar</Button></li>
 						</ul>
 					</Form>
 
-					<table className='table-pesquisa' cellspacing='0'>
-						<h1 className="form-cadastro__titulo">Pesquisa</h1>
-						<thead>
-							<tr>
-								<th className='linha'>Id</th>
-								<th className='linha'>CPF</th>
-								<th className='linha'>Setor</th>
-								<th className='linha'>Função</th>
-								<th className='linha'>Empresa</th>
-								<th className='linha'>Deletar</th>
-								<th className='linha'>Editar</th>
-							</tr>
-						</thead>
-						<tbody>
-							{
-								this.props.dados && this.props.dados.map(dado => (
-									<tr>
-										<td className='linha'>{dado.id}</td>
-										<td className='linha'>{dado.cpf}</td>
-										<td className='linha'>{dado.setor}</td>
-										<td className='linha'>{dado.funcao}</td>
-										<td className='linha'>{dado.empresaId}</td>
-										<td className='linha'><button onClick={(e) => this.deleteRow(dado.id, e)}>X</button></td>
-										<td className='linha'><button onClick={(e) => this.editRow(dado.id, e)}>E</button></td>
-									</tr>
-								))
-							}
-						</tbody>
-					</table>
+
+					<If test={pesquisa}>
+						<table className='table-pesquisa' cellspacing='0'>
+							<thead>
+								<tr>
+									<th className='linha'>Id</th>
+									<th className='linha'>CPF</th>
+									<th className='linha'>Setor</th>
+									<th className='linha'>Função</th>
+									<th className='linha'>Empresa</th>
+									<th className='linha' colspan="2">Ação</th>
+								</tr>
+							</thead>
+							<tbody>
+								{
+									this.props.dados && this.props.dados.map(dado => (
+										<tr>
+											<td className='linha'>{dado.id}</td>
+											<td className='linha'>{dado.cpf}</td>
+											<td className='linha'>{dado.setor}</td>
+											<td className='linha'>{dado.funcao}</td>
+											<td className='linha'>{dado.empresaId}</td>
+											<td className='linha'><button className="btn-remover" onClick={(e) => this.deleteRow(dado.id, e)}><TiDelete /></button></td>
+											<td className='linha'><button className="btn-remover" onClick={(e) => this.editRow(dado.id, e)}><TiEdit /></button></td>
+										</tr>
+									))
+								}
+							</tbody>
+						</table>
+					</If>
 
 				</Container>
 			</Fragment>

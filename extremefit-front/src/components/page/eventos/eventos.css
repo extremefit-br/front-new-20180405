@@ -22,11 +22,11 @@ tbody tr:hover {
 .btn-remover{
     background: none;
     border: none;
-    height: 100%;
-    width: 100%;
+    height: 80%;
+    width: 80%;
 }
 .btn-remover svg{
     height: 80%;
-    width: 100%;
+    width: 80%;
     color: #b80505;
 }

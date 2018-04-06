@@ -8,9 +8,13 @@ import Form from '../../form/form.js'
 import FormLabel from '../../form/formLabel/formLabel.js'
 import Input from '../../form/formInput/formInput.js'
 import Button from '../../form/formButton/formButton.js'
+import If from '../../if/if.jsx'
+import TiDelete from 'react-icons/lib/ti/delete'
+import TiEdit from 'react-icons/lib/ti/edit'
 import './dicas.css'
 import decode from 'jwt-decode';
 
+let pesquisa = false
 // let usuarioId = decode(localStorage.getItem('usuario'))
 const dica = {
 	descricao: "",
@@ -42,7 +46,7 @@ class Dicas extends Component {
 
 	handleSearch(event) {
 		console.log("teste evento pesquisa")
-
+		pesquisa = true
 		let usuarioId = decode(localStorage.getItem('usuario'))
 
 		this.props.buscaDicas(event)
@@ -100,35 +104,34 @@ class Dicas extends Component {
 							</div>
 						</section>
 						<ul className="form-cadastro__lista-botao">
-							<li><Button className="form-cadastro__botao" type="button" onClick={this.handleAdd}>Adicionar</Button></li>
-							<li><Button className="form-cadastro__botao" type="button" onClick={this.handleSearch}>Pesquisar</Button></li>
-							<li><Button className="form-cadastro__botao">Remover</Button></li>
+							<li><Button className="form-cadastro__botao form-cadastro__botao--add" type="button" onClick={this.handleAdd}>Salvar</Button></li>&nbsp;&nbsp;&nbsp; 
+							<li><Button className="form-cadastro__botao form-cadastro__botao--pesquisa" type="button" onClick={this.handleSearch}>Pesquisar</Button></li>
 						</ul>
 					</Form>
 
-					<table className='table-pesquisa' cellspacing='0'>
-						<h1 className="form-cadastro__titulo">Pesquisa</h1>
-						<thead>
-							<tr>
-								<th className='linha'>Id</th>
-								<th className='linha'>Descrição</th>
-								<th className='linha'>Deletar</th>
-								<th className='linha'>Editar</th>
-							</tr>
-						</thead>
-						<tbody>
-							{
-								this.props.dicas && this.props.dicas.map(dica => (
-									<tr>
-										<td className='linha'>{dica.id}</td>
-										<td className='linha'>{dica.descricao}</td>
-										<td className='linha'><button onClick={(e) => this.deleteRow(dica.id, e)}>X</button></td>
-										<td className='linha'><button onClick={(e) => this.editRow(dica.id, e)}>E</button></td>
-									</tr>
-								))
-							}
-						</tbody>
-					</table>
+					<If test={pesquisa}>
+						<table className='table-pesquisa' cellspacing='0'>
+							<thead>
+								<tr>
+									<th className='linha'>Id</th>
+									<th className='linha'>Descrição</th>
+									<th className='linha' colspan="2">Ação</th>
+								</tr>
+							</thead>
+							<tbody>
+								{
+									this.props.dicas && this.props.dicas.map(dica => (
+										<tr>
+											<td className='linha'>{dica.id}</td>
+											<td className='linha'>{dica.descricao}</td>
+											<td className='linha'><button className="btn-remover" onClick={(e) => this.deleteRow(dica.id, e)}><TiDelete /></button></td>
+											<td className='linha'><button className="btn-remover" onClick={(e) => this.editRow(dica.id, e)}><TiEdit /></button></td>
+										</tr>
+									))
+								}
+							</tbody>
+						</table>
+					</If>
 
 				</Container>
 			</Fragment>

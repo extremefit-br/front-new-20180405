@@ -1,8 +1,36 @@
 .footer{
-    background-color: #ED1B24;
+    position: fixed;
+    bottom: 0;
+    background-color: rgb(237, 27, 36);
     height: 80px;
     padding: 0 15px;
+    width: 100%;
+    max-width: 1140px;
+    box-sizing: border-box;
 }
-.footer p{
+.footer{
     color: white;
+    display: flex;
+    align-items: center;
+}
+.footer div{
+    width: 50%;
+}
+.footer-empresa{
+    margin: 0 0 5px 0;
+    font-size: 14px;
+    font-weight: bold;
+    display: block;
+}
+footer address {
+    margin: 0 0 10px 0;
+    font-size: 12px;
+    font-style: normal;
+    line-height: 15px;
+}
+.txt-right{
+    text-align: right
+}
+.txt-right svg{
+    font-size: 35px;
 }
