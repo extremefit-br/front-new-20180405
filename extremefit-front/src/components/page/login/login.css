@@ -1,0 +1,30 @@
+.login{
+    padding: 10% 5% 0 5%;
+}
+.align-center{
+    position: relative;
+    left: 50%;
+    transform: translateX(-50%);
+}
+.box-campo{
+    border-bottom: 1px solid red;
+    margin-top: 15px;
+    max-width: 500px;
+}
+.login__form-input{
+    border: none;
+    width: 95%;
+}
+.link-esqueci-senha{
+    color: red;
+    display: flex;
+    font-size: 12px;
+    justify-content: flex-end;
+    text-align: left;
+    max-width: 500px;
+}
+.login-botao{
+    border: none;
+    background: transparent;
+    font-size: 25px;
+}

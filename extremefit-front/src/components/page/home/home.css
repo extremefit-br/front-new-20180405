@@ -1,0 +1,36 @@
+.flex{
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+}
+.item-home{
+    height: 150px;
+    width: 150px;
+    position: relative;
+    display: inline-block;
+}
+.item-home svg{
+    width: 100%;
+    height: 100%;
+}
+.item-home svg g{
+    width: 100%;
+    height: 100%;
+}
+.item-blue{
+    color: rgb(00, 155, 160);
+}
+.item-red{
+    color: #b80505;
+}
+.item-orange{
+    color: #e94e1b;
+}
+.item-home span{
+    color: white;
+    font-family: Impact, Haettenschweiler, 'Arial Narrow Bold', sans-serif;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+}

@@ -1,0 +1,14 @@
+.form-cadastro__label--lineblock{
+    display: block;
+}
+.secao-campos{
+    display: flex;
+    justify-content: space-between;
+}
+.secao-campos__metade{
+    width: 45%;
+}
+.form-cadastro__campo--input{
+    width: 100%;
+    border: 1px solid black;
+}
