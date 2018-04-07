@@ -2,6 +2,8 @@
     display: flex;
     justify-content: space-around;
     align-items: center;
+    flex-wrap: wrap;
+    align-content: center;
 }
 .item-home{
     height: 150px;
@@ -23,7 +25,8 @@
     color: rgb(00, 155, 160);
 }
 .item-red{
-    color: #b80505;
+    color: #ed1b24db;;
+    margin: 2% 8%;
 }
 .item-orange{
     color: #e94e1b;
